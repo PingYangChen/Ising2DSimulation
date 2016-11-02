@@ -7,5 +7,5 @@ install.packages("shiny")
 To use this app, please open your R software and send the following commands.
 ```R
 library(shiny)
-runGitHub("StdMxMnDesign\_Inhibition", "PingYangChen")
+runGitHub("Ising2DSimulation", "PingYangChen")
 ```
