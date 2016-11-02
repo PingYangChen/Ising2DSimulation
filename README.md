@@ -1,12 +1,11 @@
 # Ising2DSimulation
 
-Steps to use this app:
-1. Open R
-2. Install shiny package
+This app runs on RShiny, please check if the users had shiny package installed.  If not, please install shiny package in R.
+```R
 install.packages("shiny")
-
-3. Attach shiny package
+```
+To use this app, please open your R software and send the following commands.
+```R
 library(shiny)
-
-4. Send commands
 runGitHub("StdMxMnDesign\_Inhibition", "PingYangChen")
+```
