@@ -1,7 +1,7 @@
 library(shiny)
 
 # Define UI for application that plots random distributions 
-shinyUI(fluidPage(
+shinyUI(fluidPage(shinyjs::useShinyjs(), 
   
   # Application title
   titlePanel("Simulate 2D Ising Model"),
@@ -33,7 +33,7 @@ shinyUI(fluidPage(
 		),							
 		# Show a plot of the generated distribution
 		column(8, 
-			plotOutput("isingPlot", height = 400, width = 400)
+			imageOutput("isingPlot", height = 400, width = 400)
 		)
 	)
 ))

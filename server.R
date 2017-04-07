@@ -1,6 +1,5 @@
 library(shiny)
 library(Rcpp)
-library(inline)
 library(RcppArmadillo)
 
 #sourceCpp("/srv/shiny-server/ising2D/updateIsing.cpp")
@@ -107,8 +106,12 @@ shinyServer(function(input, output, session) {
 		})
 	})
 	
-	output$isingPlot <- renderPlot({
-		
+	#output$isingPlot <- renderPlot({
+	output$isingPlot <- renderImage({
+
+		outfile <- tempfile(fileext='.png')
+		png(outfile, width=400, height=400)
+
 		par(mar = c(1, 1, 3, 1))  		
 		plot(0:bdgrids, 0:bdgrids, type = "n", axes = FALSE, xlab = "",ylab = "")
 		if (sum(vals$x) > 0) {
@@ -128,8 +131,12 @@ shinyServer(function(input, output, session) {
 		}
 		title(paste("Iteration = ", grids^2, " x ", vals$counter, sep = ""), line = .8)
 		
-	})
-
-	
+		dev.off()
+		list(src = outfile,
+         contentType = 'image/png',
+         width = 400,
+         height = 400,
+         alt = "This is alternate text")
+	}, deleteFile = TRUE)
 
 })
