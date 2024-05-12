@@ -5,6 +5,8 @@
 using namespace Rcpp;
 using namespace arma;
 
+//[[Rcppplugins(cpp11)]]
+
 //[[Rcpp::export]]
 NumericVector updateIsing(NumericVector x, const double temp, const int method, const int bdgrids)
 {
